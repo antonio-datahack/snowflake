@@ -1,19 +1,19 @@
 **1) Tell me about yourself:**
 
-well, I'm an ex opera singer, I used to work in the choir of Stralsund opera house. But I was learning to program by myself and It was really taking all my mind at the point that I started to think that it was really my vocation, even more than singing that is something that I really love.
+I'm an ex opera singer, I used to work in the choir of Stralsund opera house. But I was learning to program by myself and It was really taking all my mind at the point that I started to think that it was really my vocation, even more than singing that is something that I really love.
 
 All my life I have done things that I love, not just sing but also I like doing martial art. I am 3er Dan in aikido and a blue belt in BJJ and probably most of my soft skills come from martial arts.
 
-I am from Argentina, my father is a businessman and as you probably know Argentina has an eternal inflation problem and we have gone through many crises because of that. And I have seen my father going bankrupt and starting from scratch many times. And also I saw my father making really good money, just because he loves working and because he is really passionate about what he does. I think I learned a lot from him and when I decide to change career I was not broke, I had a stable job but I wanted to start again. And of course, I was not afraid because I know how to do that I have seen that all my life and the secret is just, to love what you are doing and working hard, but also trying to be smart.
+I am from Argentina, my father is a businessman and as you probably know Argentina has an eternal inflation problem and we have gone through many crises because of that. And I have seen my father going bankrupt and starting from scratch many times. And also I saw my father making really good money, just because he loves working and because he is really passionate about what he does. I think I learned a lot from him and when I decided to change career I was not broke, I had a stable job but I wanted to start again. And of course, I was not afraid because I knew how to do that I have seen that all my life and the secret is just, to love what you are doing, working hard and even you need to be smart, sensible.
 
-I really like reading books, I always read a lot of novels, books on philosophy, political theory, and poetry. Probably what I most enjoy reading is poetry, because poetry needs a lot of the reader's content, if the reader does not engage his senses when reading, perhaps the words of poetry are going to be like empty words. But in the last years, I read a lot about python and machine learning and also about how to change habits.
+I really like reading books, I always read a lot of novels, books on philosophy, political theory, and poetry. Probably what I most enjoy reading is poetry, because poetry needs a lot of the reader's engagement and sensitivity. But in the last years, I have read a lot about python, machine learning and about how to change habits as wel.
 
 And regarding computers I really like them and I wanted the learn IT security and 4 years ago I was talking with a cousin of mine who is a programmer and he says to me, not! what you have to do is to learn to program with PHP and python..... ok... I started to learn php and then I discovered data science and I fell totally in love with it and it also has something that I like a lot and it is math.
 
 
 **2) What is your greatest strength.**
 
-I am a person who really likes processes, the process that leads someone to become a data analyst, a team to reach its goals. How people, teams, mentality, environment, habits are formed to achieve a task.
+I am a person who really likes processes, the process that leads someone to become a data analyst, a team to reach its goals. How people, teams, mentality, environment, habits work towards achieving a task.
 I am also a person who really likes to create spaces where others feel safe to be themselves.
 I think I have an analytical mindset and quite creative at the same time. So I am always looking for alternative or new ways to do a task or find an answer.
 
@@ -25,7 +25,7 @@ I think that because I like to program a lot, sometimes I learn many things at t
 And this is often not "directly" related  to data anlytics. For example last week I was learning the framework Django creating rest apis and I spent long hours on it. And sometimes it is also hard to control  how many hours I devote to my work.  
 when that happens I go to bed late  and I don't sleep enough. And there is a moment where I feel that my mind and my eyes are really tired. 
 But now I am creating tasks and doing a week plan to organize my time better, and also I am doing breathing exercises before sleeping to disconnect from my day and to prepare my body to sleep better. 
-I am traying to create more positiv habits. and start cuting all this habits that in a simple view look like good ones, because learning is allways good. But they are no so effective. I am reading a book called atomic habits to change my mind in a better way.
+I am trying to create more positive habits, and start giving up all these habits that in a simple view look like good ones, because learning is allways good. But they are no so effective. I am reading a book called atomic habits to change my mind in a better way.
 
 
 **4) Why should we hire you ?
