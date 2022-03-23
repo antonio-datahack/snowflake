@@ -1,5 +1,6 @@
 Snowflake,
 crear tabla:
+```sql
 
 CREATE TABLE "OUR_FIRST_DB"."PUBLIC"."SECOND_TABLE" (
   "AGE_CUSTOMER" INTEGER NOT NULL, 
@@ -41,4 +42,8 @@ CREATE TABLE "OUR_FIRST_DB"."PUBLIC"."LOAN_PAYMENT" (
 
 //Validate
  SELECT * FROM LOAN_PAYMENT;
+ 
+ ```
+ 
+ ![Cloud Computing](https://github.com/antonio-datahack/index-readme/blob/main/images/1.png)
   
