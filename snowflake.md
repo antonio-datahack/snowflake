@@ -294,6 +294,137 @@ SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX WHERE ORDER_ID > 15;
     
 DROP TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX
 
+```
+
+<h3>Copy options & ON_ERROR -25-</h3>
+
+```sql
+
+// Create new stage
+ CREATE OR REPLACE STAGE MANAGE_DB.external_stages.aws_stage_errorex
+    url='s3://bucketsnowflakes4';
+ 
+ // List files in stage
+ LIST @MANAGE_DB.external_stages.aws_stage_errorex;
+ 
+ 
+ // Create example table
+ CREATE OR REPLACE TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX (
+    ORDER_ID VARCHAR(30),
+    AMOUNT INT,
+    PROFIT INT,
+    QUANTITY INT,
+    CATEGORY VARCHAR(30),
+    SUBCATEGORY VARCHAR(30));
+ 
+ // Demonstrating error message
+ // esto nos va a dar error porque a veces profit esta escrito en palabras y no en numero
+ COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    files = ('OrderDetails_error.csv');
+    
+
+ // Validating table is empty    
+SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+    
+
+ // Error handling using the ON_ERROR option
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    files = ('OrderDetails_error.csv')
+    ON_ERROR = 'CONTINUE';
+    
+// Validating results and truncating table 
+SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+SELECT COUNT(*) FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+
+TRUNCATE TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+
+// Error handling using the ON_ERROR option = ABORT_STATEMENT (default)
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    files = ('OrderDetails_error.csv','OrderDetails_error2.csv')
+    ON_ERROR = 'ABORT_STATEMENT';
+
+
+  // Validating results and truncating table 
+SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+SELECT COUNT(*) FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+
+TRUNCATE TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+
+// Error handling using the ON_ERROR option = SKIP_FILE
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    files = ('OrderDetails_error.csv','OrderDetails_error2.csv')
+    ON_ERROR = 'SKIP_FILE';
+    
+    
+  // Validating results and truncating table 
+SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX
+SELECT COUNT(*) FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX
+
+TRUNCATE TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX; 
+    
+
+// Error handling using the ON_ERROR option = SKIP_FILE_<number>
+// esto me va a cargar la file solo si tiene menos de 2
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    files = ('OrderDetails_error.csv','OrderDetails_error2.csv')
+    ON_ERROR = 'SKIP_FILE_2';
+    
+    
+// esto me va a cargar la file solo si tiene menos de 3 errores    
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    files = ('OrderDetails_error.csv','OrderDetails_error2.csv')
+    ON_ERROR = 'SKIP_FILE_3';
+    
+// Validating results and truncating table 
+SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+SELECT COUNT(*) FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+
+TRUNCATE TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+
+    
+// Error handling using the ON_ERROR option = SKIP_FILE_<number>
+// esto me va a cargar la file solo si los errores no superarn el 0.5%
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    files = ('OrderDetails_error.csv','OrderDetails_error2.csv')
+    ON_ERROR = 'SKIP_FILE_0.5%'; 
+  
+  
+SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+
+
+ CREATE OR REPLACE TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX (
+    ORDER_ID VARCHAR(30),
+    AMOUNT INT,
+    PROFIT INT,
+    QUANTITY INT,
+    CATEGORY VARCHAR(30),
+    SUBCATEGORY VARCHAR(30));
+
+
+
+
+
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    files = ('OrderDetails_error.csv','OrderDetails_error2.csv')
+    ON_ERROR = SKIP_FILE_3 
+    SIZE_LIMIT = 30;
+
 
 SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
 
