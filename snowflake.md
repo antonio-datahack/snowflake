@@ -428,5 +428,96 @@ COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
 
 SELECT * FROM OUR_FIRST_DB.PUBLIC.ORDERS_EX;
 
+```
+
+<h3>File format object -26-</h3>
+
+```sql
+
+// Creating table
+CREATE OR REPLACE TABLE OUR_FIRST_DB.PUBLIC.ORDERS_EX (
+    ORDER_ID VARCHAR(30),
+    AMOUNT INT,
+    PROFIT INT,
+    QUANTITY INT,
+    CATEGORY VARCHAR(30),
+    SUBCATEGORY VARCHAR(30));
+
+// Creating schema to keep things organized
+// esto no es mandatory pero se hace para mantner las cosas ordenadas
+CREATE OR REPLACE SCHEMA MANAGE_DB.file_formats;
+
+// Creating file format object
+CREATE OR REPLACE file format MANAGE_DB.file_formats.my_file_format;
+
+// See properties of file format object
+DESC file format MANAGE_DB.file_formats.my_file_format;
+
+// Specifying file_format in Copy command
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format = (type = csv field_delimiter=',' skip_header=1)
+    files = ('OrderDetails_error.csv')
+    ON_ERROR = 'SKIP_FILE_3';
+
+
+// Using file format object in Copy command       
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (FORMAT_NAME=MANAGE_DB.file_formats.my_file_format)
+    files = ('OrderDetails_error.csv')
+    ON_ERROR = 'SKIP_FILE_3';
+
+
+// Altering file format object
+// esto va a alterar la forma en la q esta creado nuestro esquema ( lo podemos var a traves de -DESC file format MANAGE_DB.file_formats.my_file_format;-)
+ALTER file format MANAGE_DB.file_formats.my_file_format
+    SET SKIP_HEADER = 1;
     
+// Defining properties on creation of file format object   
+CREATE OR REPLACE file format MANAGE_DB.file_formats.my_file_format
+    TYPE=JSON,
+    TIME_FORMAT=AUTO;
+    
+// See properties of file format object    
+DESC file format MANAGE_DB.file_formats.my_file_format;
+
+  
+// Using file format object in Copy command       
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format= (FORMAT_NAME=MANAGE_DB.file_formats.my_file_format)
+    files = ('OrderDetails_error.csv')
+    ON_ERROR = 'SKIP_FILE_3'; 
+
+
+// Altering the type of a file format is not possible
+ALTER file format MANAGE_DB.file_formats.my_file_format
+SET TYPE = CSV;
+
+
+// Recreate file format (default = CSV)
+CREATE OR REPLACE file format MANAGE_DB.file_formats.my_file_format;
+
+
+// See properties of file format object    
+DESC file format MANAGE_DB.file_formats.my_file_format;
+
+
+
+// Truncate table
+TRUNCATE table OUR_FIRST_DB.PUBLIC.ORDERS_EX;
+
+
+
+// Overwriting properties of file format object      
+// esta es otra forma, en vez de hacer luego la funcion (ALTER file format MANAGE_DB.file_formats.my_file_format SET SKIP_HEADER = 1;) la escribo directamente cuando copio mediante (skip_header=1)
+COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
+    FROM  @MANAGE_DB.external_stages.aws_stage_errorex
+    file_format = (FORMAT_NAME= MANAGE_DB.file_formats.my_file_format  field_delimiter = ',' skip_header=1 )
+    files = ('OrderDetails_error.csv')
+    ON_ERROR = 'SKIP_FILE_3';
+
+DESC STAGE MANAGE_DB.external_stages.aws_stage_errorex;
+
 ```
