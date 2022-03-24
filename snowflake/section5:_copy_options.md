@@ -101,10 +101,6 @@ select rejected_record from table(result_scan(last_query_id()));
 SELECT * FROM rejected;
 
 
-
-
----- 2) Saving rejected files without VALIDATION_MODE ---- 
-
 COPY INTO COPY_DB.PUBLIC.ORDERS
     FROM @aws_stage_copy
     file_format= (type = csv field_delimiter=',' skip_header=1)
@@ -114,8 +110,11 @@ COPY INTO COPY_DB.PUBLIC.ORDERS
   
 select * from table(validate(orders, job_id => '_last'));
 
+```
 
----- 3) Working with rejected records ---- 
+<h3>Working with rejected records</h3>
+
+```sql
 
 SELECT REJECTED_RECORD FROM rejected;
 
