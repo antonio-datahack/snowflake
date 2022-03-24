@@ -135,6 +135,8 @@ SELECT * FROM rejected_values;
 
 <h3>SIZE LIMIT</h3>
 
+![size limit](https://github.com/antonio-datahack/index-readme/blob/main/snowflake/images/size_limit.png)
+
 ```sql 
 
 // Prepare database & table
@@ -177,6 +179,8 @@ COPY INTO COPY_DB.PUBLIC.ORDERS
 ```
 
 <h3>RETURN FAILED ONLY</h3>
+
+![return failed only](https://github.com/antonio-datahack/index-readme/blob/main/snowflake/images/return_failed_only.png)
 
 ```sql
 
