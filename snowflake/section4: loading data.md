@@ -46,7 +46,7 @@ CREATE TABLE "OUR_FIRST_DB"."PUBLIC"."LOAN_PAYMENT" (
  
  ```
  
- ![Cloud Computing](https://github.com/antonio-datahack/index-readme/blob/main/images/1.png)
+ ![Cloud Computing](https://github.com/antonio-datahack/index-readme/blob/main/snowflake/images/1.png)
   
 
 <h3> Creating Stage </h3>
@@ -521,3 +521,5 @@ COPY INTO OUR_FIRST_DB.PUBLIC.ORDERS_EX
 DESC STAGE MANAGE_DB.external_stages.aws_stage_errorex;
 
 ```
+
+![File format object](https://github.com/antonio-datahack/index-readme/blob/main/snowflake/images/3.png)
