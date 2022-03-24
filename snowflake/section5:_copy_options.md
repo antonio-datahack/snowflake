@@ -135,7 +135,7 @@ SELECT * FROM rejected_values;
 
 <h3>SIZE LIMIT</h3>
 
-![size limit](https://github.com/antonio-datahack/index-readme/blob/main/snowflake/images/size_limit.png)
+<img src="images/size_limit.png" width="600" height="200" />
 
 ```sql 
 
@@ -180,7 +180,7 @@ COPY INTO COPY_DB.PUBLIC.ORDERS
 
 <h3>RETURN FAILED ONLY</h3>
 
-![return failed only](https://github.com/antonio-datahack/index-readme/blob/main/snowflake/images/return_failed_only.png)
+<img src="images/return_failed_only.png" width="600" height="200" />
 
 ```sql
 
@@ -234,5 +234,50 @@ COPY INTO COPY_DB.PUBLIC.ORDERS
     file_format= (type = csv field_delimiter=',' skip_header=1)
     pattern='.*Order.*'
     ON_ERROR =CONTINUE;
+
+```
+
+<h3>Truncate Columns</h3>
+
+<img src="images/truncate_columns.png" width="600" height="250" />
+
+
+```sql
+
+---- TRUNCATECOLUMNS ----
+
+
+
+CREATE OR REPLACE TABLE  COPY_DB.PUBLIC.ORDERS (
+    ORDER_ID VARCHAR(30),
+    AMOUNT VARCHAR(30),
+    PROFIT INT,
+    QUANTITY INT,
+    CATEGORY VARCHAR(10),
+    SUBCATEGORY VARCHAR(30));
+
+// Prepare stage object
+CREATE OR REPLACE STAGE COPY_DB.PUBLIC.aws_stage_copy
+    url='s3://snowflakebucket-copyoption/size/';
+  
+LIST @COPY_DB.PUBLIC.aws_stage_copy;
+  
+    
+ //Load data using copy command
+COPY INTO COPY_DB.PUBLIC.ORDERS
+    FROM @aws_stage_copy
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    pattern='.*Order.*';
+
+// va a cortar lo q sobre luego de los 10 caracteres
+COPY INTO COPY_DB.PUBLIC.ORDERS
+    FROM @aws_stage_copy
+    file_format= (type = csv field_delimiter=',' skip_header=1)
+    pattern='.*Order.*'
+    TRUNCATECOLUMNS = true;
+    
+    
+SELECT * FROM ORDERS;
+
 
 ```
