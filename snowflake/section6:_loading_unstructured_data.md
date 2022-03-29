@@ -161,6 +161,9 @@ ORDER BY id;
 
 <h3>Assignment 8: Parsing & handling array</h3>
 
+
+```sql 
+
 USE EXERCISE_DB;
     
 SELECT  
@@ -194,3 +197,6 @@ SELECT
     RAW_FILE:Skills[1]::STRING as skills_2
 FROM EXERCISE_DB.PUBLIC.JSON_RAW
 WHERE first_name = 'Florina';
+
+
+```
