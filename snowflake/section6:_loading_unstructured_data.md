@@ -1,3 +1,4 @@
+<h1>Section 6: Loading Unstructured Data<h1>
 <h3>38. Creating stage & raw file</h3>
 
 ```sql
