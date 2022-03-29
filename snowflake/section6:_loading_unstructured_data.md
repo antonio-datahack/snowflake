@@ -158,3 +158,39 @@ ORDER BY id;
 
 
 ```
+
+<h3>Assignment 8: Parsing & handling array</h3>
+
+USE EXERCISE_DB;
+    
+SELECT  
+    RAW_FILE:first_name::STRING as first_name,
+    RAW_FILE:last_name::STRING as last_name,
+    RAW_FILE:Skills[0]::STRING as skills_1,
+    RAW_FILE:Skills[1]::STRING as skills_2
+FROM EXERCISE_DB.PUBLIC.JSON_RAW;
+
+
+
+// Copy data in table
+CREATE TABLE SKILLS AS
+SELECT 
+$1:first_name::STRING as first_name,
+$1:last_name::STRING as last_name,
+$1:Skills[0]::STRING as Skill_1,
+$1:Skills[1]::STRING as Skill_2
+FROM JSON_RAW;
+
+// Query from table
+SELECT * FROM SKILLS
+WHERE FIRST_NAME='Florina';
+
+
+// una opcion ligera
+SELECT  
+    RAW_FILE:first_name::STRING as first_name,
+    RAW_FILE:last_name::STRING as last_name,
+    RAW_FILE:Skills[0]::STRING as skills_1,
+    RAW_FILE:Skills[1]::STRING as skills_2
+FROM EXERCISE_DB.PUBLIC.JSON_RAW
+WHERE first_name = 'Florina';
