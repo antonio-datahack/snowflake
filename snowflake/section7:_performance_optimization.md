@@ -82,3 +82,7 @@ ALTER WAREHOUSE COMPUTE_WH
 SET WAREHOUSE_SIZE = 'SMALL'; 
 
 ```
+
+** otra forma de hacerlo es desde la parte grafica... warehouses**
+
+<img src="images/section7.1.png" width="800" height="350" />
