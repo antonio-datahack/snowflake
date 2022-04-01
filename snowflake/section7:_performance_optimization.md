@@ -75,6 +75,7 @@ DROP WAREHOUSE DBA_WH;
 
 <h3>48. Scaling up</h3>
 
+<img src="images/section7.4.png" width="700" height="350" />
 
 ```sql 
 
@@ -86,3 +87,25 @@ SET WAREHOUSE_SIZE = 'SMALL';
 ** otra forma de hacerlo es desde la parte grafica... warehouses**
 
 <img src="images/section7.1.png" width="800" height="350" />
+
+
+<h3>49. Scaling out</h3>
+
+<img src="images/section7.2.png" width="500" height="220" />
+
+<img src="images/section7.5.png" width="500" height="220" /> 
+
+<img src="images/section7.3.png" width="500" height="220" /> 
+
+**se hace de forma grafica, tener en cuenta q debe ser mode standard**
+
+<img src="images/section7.6.png" width="700" height="350" />
+
+```sql
+
+SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SITE T1
+CROSS JOIN SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SITE T2
+CROSS JOIN SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SITE T3
+CROSS JOIN (SELECT TOP 57 * FROM SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SITE)  T4
+
+```
