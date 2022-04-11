@@ -39,15 +39,22 @@ Y porque creo que me siento muy comodo con (la tarea especifica de la empresa pa
 **5) Why do you want to work here?**
 
 
-**6) Tell me about a time you show leadership.**
-**7) Tell me about a time you showed leadership.**
+**6) Tell me about a time you showed leadership.**
+
+**7) Tell me about a time you were successful on a team.**
  
 Well this is not related to business but I use to teach aikido in the school that I used to train and my class was one of the most popular classes, and not because I was the most skilled guy but because I use to prepared my classes and I use to think a lot in what I was doing or what I was feeling during the technique and how to explain that and It was a kind of double motivation because the guys were coming to my classes because I was really enjoying teaching and for myself, I was feeling really nice energy from the guys who were following me. And of course, teaching is also a good way to learn.
 A couple of years ago I was in Argentina and I went to this school to visit a friend who was teaching there and a black belt that I didn't know approached me and said "you are a legend here" 
 
+**8) What would your co-workers say about you?**
+
+I wish my co-workers would be here. Because it would sound less arrogant if they talk about me. But I think they would say that I am a gay who is always working, as an ex opera singer I use to go to the theater even the day that I didnt have to work just to sing, to keep in shape my voice, and always looking to sing better. I think they would also say that I am a easy going guy with always a very good humor. 
+
 **9)  What do you want to leave your current role?**
 
 **10)  Describe your most challenging project**
+
+as a Data Analyst a did a case study with imbalance data wich was really complicate because the data was really imbalance an traying to balance the data a bit with sintetic data was not enough so I had to look for the best features, then the best hyperparameters and It was not easy. But I am happuy with the results because I learned a lot.
 
 **11)  Tell me about something you’ve accomplished that you are proud of. **
 
