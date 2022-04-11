@@ -1,2 +1,0 @@
-<p>I consider myself someone who loves helping others to grow. 
-Ser parte de un equipo que ayuda a otras personas a lograr sus objetivos es algo que realmente me motiva a ser parte. También pienso en que los usuarios de UXCam son personas activas en querer mejorar y a la vez personas abiertas a recibir ayuda por lo que me encantaría poder conocerlas y, porque no, aprender sobre su vision de negocios. </p>
